@@ -25,15 +25,7 @@ RUN	yum -y install wget make bzip2-devel gcc-c++ gcc-gfortran libX11-devel libic
   	yum clean all
 
 #下载JDK
-ENV JAVA_VERSION 8u31
-ENV BUILD_VERSION b13
-
-# Upgrading system
-RUN yum -y upgrade
-RUN yum -y install wget
-
-# Downloading Java
-RUN wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-$BUILD_VERSION/jdk-$JAVA_VERSION-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm
+RUN wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm
 
 RUN yum -y install /tmp/jdk-8-linux-x64.rpm
 
