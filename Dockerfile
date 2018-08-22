@@ -1,6 +1,6 @@
 ## Emacs, make this -*- mode: sh; -*-
  
-FROM centos:6.8
+FROM centos:centos7
 
 COPY . /app
 WORKDIR /app
