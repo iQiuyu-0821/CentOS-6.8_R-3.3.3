@@ -19,7 +19,7 @@ RUN	yum -y install wget make bzip2-devel gcc-c++ gcc-gfortran libX11-devel libic
   	libgfortran libgomp freetype fontconfig libXrender libpng pango-devel.x86_64 libXt-devel \
   	cairo-devel.x86_64 NLopt-devel.x86_64 curl.x86_64 postgresql-devel \
   	libcurl-devel mesa-libGL-devel mesa-libGLU-devel mysql-devel \
-  	openssh-server openssh-clients openssh httpd \
+  	openssh-server openssh-clients openssh httpd gsl-devel \
   	perl-libintl texinfo texlive-epsf xorg-x11-proto-devel xz-libs zlib which && \
    	yum groupinstall X11 -y && \
   	yum clean all
