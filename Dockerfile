@@ -24,6 +24,13 @@ RUN	yum -y install wget make bzip2-devel gcc-c++ gcc-gfortran libX11-devel libic
    	yum groupinstall X11 -y && \
   	yum clean all
 
+#升级zlib
+RUN wget http://zlib.net/zlib-1.2.11.tar.gz && \
+	tar -zxvf zlib-1.2.11.tar.gz && \
+	cd zlib-1.2.11 && \
+	./configure && make && make install
+
+
 #下载JDK
 RUN wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm
 
@@ -44,7 +51,8 @@ RUN wget https://cran.r-project.org/src/base/R-3/R-3.3.3.tar.gz && \
   	cd R-3.3.3 && \
   	./configure --prefix=/usr/local/lib64/R --with-readline=yes --with-x=yes --enable-R-shlib && \
   	make && make install && \
-  	rm -fr R-3.3.3.tar.gz && rm -fr R-3.3.3
+  	rm -fr R-3.3.3.tar.gz && rm -fr R-3.3.3 && \
+  	rm -fr zlib-1.2.11.tar.gz && rm -fr zlib-1.2.11
 
 #设置R环境变量
 ENV R_HOME /usr/local/lib64/R
